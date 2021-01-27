@@ -1,0 +1,4 @@
+[prometheus]
+localhost ansible_user= ansible_password=
+
+
