@@ -4,4 +4,5 @@
   become: yes
   become_method: sudo
   roles:
-    - prometheus
+    - prometheus_install
+    - prometheus_configure

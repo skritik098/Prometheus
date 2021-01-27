@@ -1,0 +1,28 @@
+--- 
+# tasks file for prometheus_install
+
+- name: Copying the config file
+  template:
+    src: prometheus.conf.j2
+    dest: /etc/prometheus/prometheus.conf
+  notify: Restart the Prometheus service
+
+- name: Start prometheus service
+  service:
+    name: prometheus
+    state: started
+    enabled: yes
+
+- name: Adding the firewall rule
+  firewalld:
+    port: "9090/tcp"
+    state: enabled
+    permanent: yes
+    immediate: yes
+
+
+- name: Check if prometheus is accessible
+  uri:
+    url: http://localhost:9090
+    method: GET
+    status_code: 200
