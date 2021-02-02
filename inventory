@@ -1,4 +1,6 @@
 [prometheus]
 localhost ansible_user= ansible_password=
 
+[node_exporter]
+localhost ansible_user= ansible_password=
 

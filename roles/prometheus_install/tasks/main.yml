@@ -34,7 +34,7 @@
     path: '/tmp/prometheus-{{ version }}.linux-amd64'
     state: absent
 
-- name: Creates directory for Stooring Prometheus Data
+- name: Creates directory for Storing Prometheus Data
   file: 
     path: "/data/prometheus/"
     state: directory
