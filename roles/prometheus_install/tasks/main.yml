@@ -78,6 +78,14 @@
     state: enabled
     permanent: yes
     immediate: yes
+  when: ansible_facts['os_family'] != "Debian"
+
+- name: Adding firewall rule for Debian
+  ufw:
+    rule: allow
+    port: "9090"
+    proto: "tcp"
+  when: ansible_facts['os_family']  == "Debian"
 
 
 - name: Check if prometheus is accessible
